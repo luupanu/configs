@@ -50,6 +50,6 @@ fi
 
 # music installation
 if [ $1 == "music" ]; then
-    cd supercollider
+    cd music
     ./setup.sh
 fi

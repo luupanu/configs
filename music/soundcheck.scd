@@ -2,7 +2,8 @@
 var numOuts = 6;
 
 var firstNote = 60;
-var lastNote = 24;
+var lastNote = firstNote - (3 * 12);
+
 var freqs = (Array.fill(numOuts-1, { |i| firstNote + Scale.lydian.degrees.wrapAt(i) }) ++ lastNote).midicps;
 var positions = Array.fill(numOuts, { |i| 0 + (i * 2/numOuts) });
 

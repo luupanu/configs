@@ -1,20 +1,14 @@
 #!/bin/bash
 #
 # Install from configs.
-#
-# Parameters:
-#   ./setup.sh common   - install brew and XCode Command Line Tools
-#   ./setup.sh apps     - install MacOS applications
-#   ./setup.sh conda    - install miniconda with some essential scientific packages
-#   ./setup.sh formulae - install non-essential brew formulae
-#   ./setup.sh music    - install basic audio tools such as SuperCollider and Audacity
 
 # check if we have arguments
 if [ $# -eq 0 ]; then
     echo "No arguments supplied."
     printf "\n"
     echo "Usage:"
-    echo "  ./setup.sh common   - install brew and XCode Command Line Tools"
+    echo "  ./setup.sh setup    - install brew and XCode Command Line Tools"
+    echo "  ./setup.sh common   - install essential brew formulae"
     echo "  ----------------------------------------------------------------------------------"
     echo "  ./setup.sh apps     - install MacOS applications"
     echo "  ./setup.sh conda    - install miniconda with some essential scientific packages"
@@ -24,15 +18,16 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-# Common installation
-if [ $1 == "common" ]; then
+# setup
+if [ $1 == "setup" ]; then
     xcode-select --install
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
+# common installation
+if [ $1 == "common" ]; then
     cd common
-    brew bundle --file Brewfile
-    cp ".zsh_aliases" "$HOME/.zsh_aliases"
-    cp ".zshrc" "$HOME/.zshrc"
+    ./setup.sh
 fi
 
 # apps installation

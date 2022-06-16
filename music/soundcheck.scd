@@ -1,8 +1,9 @@
 (
 var numOuts = 6;
 
+var firstNote = 60;
 var lastNote = 24;
-var freqs = (Array.fill(numOuts-1, { |i| 60 + Scale.major.degrees.wrapAt(i) }) ++ lastNote).midicps;
+var freqs = (Array.fill(numOuts-1, { |i| firstNote + Scale.lydian.degrees.wrapAt(i) }) ++ lastNote).midicps;
 var positions = Array.fill(numOuts, { |i| 0 + (i * 2/numOuts) });
 
 // server settings

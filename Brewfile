@@ -3,13 +3,8 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 brew "colordiff"
-brew "ffmpeg"
 brew "git"
-brew "imagemagick"
-brew "jq"
-brew "pandoc"
 brew "zsh"
 
-cask "basictex"
 cask "firefox"
 cask "sublime-text"

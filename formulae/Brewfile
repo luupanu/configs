@@ -1,0 +1,10 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+brew "ffmpeg"
+brew "imagemagick"
+brew "jq"
+brew "pandoc"
+
+cask "basictex"

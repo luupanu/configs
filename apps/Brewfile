@@ -1,0 +1,11 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+cask "audacity"
+cask "gimp"
+cask "libreoffice"
+cask "signal"
+cask "telegram"
+cask "vlc"
+cask "whatsapp"

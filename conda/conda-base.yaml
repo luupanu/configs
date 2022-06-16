@@ -1,0 +1,11 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - ipython
+  - matplotlib
+  - numpy
+  - opencv
+  - pandas
+  - python
+  - scipy

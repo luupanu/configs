@@ -1,0 +1,9 @@
+alias grep='grep --color=auto'
+alias ls='ls -Gla'
+del() {
+  mv ${@} ~/.Trash/
+}
+path() {
+  echo $(pwd)/${@}
+}
+alias diff='colordiff'

@@ -4,6 +4,7 @@ tap "homebrew/core"
 
 brew "colordiff"
 brew "git"
+brew "wget"
 brew "zsh"
 
 cask "firefox"

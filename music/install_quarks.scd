@@ -11,5 +11,6 @@ var quarks = [
 ];
 
 quarks.do(Quarks.install(_));
+0.exit;
 
 )

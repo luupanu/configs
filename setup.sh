@@ -29,6 +29,7 @@ if [ $1 == "common" ]; then
     xcode-select --install
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+    cd common
     brew bundle --file Brewfile
     cp ".zsh_aliases" "$HOME/.zsh_aliases"
     cp ".zshrc" "$HOME/.zshrc"

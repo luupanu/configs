@@ -8,14 +8,16 @@ brew bundle --file Brewfile
 # install SC3plugins
 wget $SC3PLUGINS_URL
 unzip $(basename -- $SC3PLUGINS_URL)
-mv "SC3plugins" "$SC_EXTENSIONS_DIR"
+rsync -av --delete "SC3plugins" "$SC_EXTENSIONS_DIR"
 rm $(basename -- $SC3PLUGINS_URL)
+rm -rf "SC3plugins"
 
 # install VSTPLUGIN
 wget $VSTPLUGIN_URL
 unzip $(basename -- $VSTPLUGIN_URL)
-mv "VSTPlugin" "$SC_EXTENSIONS_DIR"
+rsync -av --delete "VSTPlugin" "$SC_EXTENSIONS_DIR"
 rm $(basename -- $VSTPLUGIN_URL)
+rm -rf "VSTPlugin"
 
 # install Quarks
 sclang "install_quarks.scd"

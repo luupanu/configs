@@ -91,6 +91,72 @@ def sample_uniform_sums_to_n_upper_limit(a: int, b: int, n: int, k: int) -> Sequ
         if np.max(arr) <= b:
             return arr
 
+# https://stackoverflow.com/a/62729110
+def factors(n):
+    """
+    Factors of n based upon getting primes for trial division based upon wheel factorization
+
+    :param n: a number
+    :returns: all factors of number n
+    """
+
+    # Init to 1 and number
+    result = {1, n}
+
+    # set up prime generator
+    primes = prime_generator()
+
+    # Get next prime
+    i = next(primes)
+
+    while(i * i <= n):
+        if (n % i == 0):
+            result.add(i)
+
+            while (n % i == 0):
+                n //= i
+                result.add(n)
+
+        i = next(primes)  # use next prime
+
+    return result
+
+def prime_generator():
+    """
+    Generator for primes using trial division and wheel method
+    """
+    yield 2; yield 3; yield 5; yield 7;
+
+    def next_seq(r):
+        " next in the sequence of primes "
+        f = next(r)
+        yield f
+
+        r = (n for n in r if n % f)  # Trial division
+        yield from next_seq(r)
+
+    def wheel():
+        " cycles through numbers in wheel whl "
+        whl = [2, 4, 2, 4, 6, 2, 6, 4, 2, 4, 6, 6, 2, 6, 4, 2,
+               6, 4, 6, 8, 4, 2, 4, 2, 4, 8, 6, 4, 6, 2, 4, 6,
+               2, 6, 6, 4, 2, 4, 6, 2, 6, 4, 2, 4, 2, 10, 2, 10]
+
+        while whl:
+            for element in whl:
+                yield element
+
+    def wheel_accumulate(n, gen):
+        " accumulate wheel numbers "
+        yield n
+
+        total = n
+        for element in gen:
+            total += element
+            yield total
+
+        for p in next_seq(wheel_accumulate(11, wheel())):
+            yield p
+
 # def gcd(a: int, b: int) -> int:
 #     """
 #     Recursively calculate the greatest common divisor.

@@ -10,7 +10,7 @@ cp ".zshrc" "$HOME/.zshrc"
 defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write -g com.apple.swipescrolldirection -bool false
 defaults write -g InitialKeyRepeat -int 10
-defaults write -g KeyRepeat -int 1
+defaults write -g KeyRepeat -int 2
 defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
 defaults write -g NSWindowResizeTime -float 0
 defaults write -g QLPanelAnimationDuration -float 0
